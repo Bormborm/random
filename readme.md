@@ -27,6 +27,10 @@ unit of work
 
 check all for sql injections
 
+validateUserData($_POST){
+validateEmail($_POST(EMAIL)->validatePassword()->validateConfirmedPassword()
+}
+
 
 
 _Sincerely._
