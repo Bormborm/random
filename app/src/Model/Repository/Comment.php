@@ -13,7 +13,7 @@ class Comment extends DBHandlerService
                                  FROM users u LEFT JOIN comments c 
                                  ON u.id = c.user_id 
                                  WHERE u.id = ". $id . "
-                                 GROUP BY c.date;");
+                                 ORDER BY c.date;");
         $comment =  $response->fetchAll();
         $comment['id'] = (int) $comment['id'];
         return $comment;
@@ -34,7 +34,8 @@ class Comment extends DBHandlerService
         $response = self::query("SELECT u.name, c.text, c.date, c.id, c.user_id 
                                   FROM comments c LEFT JOIN users u 
                                   ON c.user_id = u.id 
-                                  WHERE c.post_id = " . $postId . ";");
+                                  WHERE c.post_id = " . $postId . "
+                                  ORDER BY c.date DESC;");
         $comments = $response->fetchAll();
         foreach ($comments as $commentModel => $commentArray) {
             $comments[$commentModel] = (new CommentModel())
