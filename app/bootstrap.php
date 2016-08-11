@@ -15,7 +15,7 @@ if (!file_exists($routesConfigFile)) {
 }
 $routes = Yaml::parse(file_get_contents($routesConfigFile), Yaml::PARSE_OBJECT);
 
-if (!$route = $_GET['entity'] ?: false) {
+if (!$route = $_GET['entity'] ? $_GET['entity'] : false) {
     $route = APP_DEFAULT_ROUTE;
 }
 
