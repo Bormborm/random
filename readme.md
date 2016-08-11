@@ -25,5 +25,8 @@ type conversion only where it's needed.
 unit of work
 
 
+check all for sql injections
+
+
 
 _Sincerely._
